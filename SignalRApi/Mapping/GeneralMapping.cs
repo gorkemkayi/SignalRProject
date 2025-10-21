@@ -65,6 +65,7 @@ namespace SignalRApi.Mapping
             CreateMap<Product, GetProductDto>().ReverseMap();
             CreateMap<CreateProductDto, Product>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
+            CreateMap<Product,ResultProductWithCategory>().ForMember(dest=>dest.CategoryName,opt=>opt.MapFrom(src=>src.Category.CategoryName)).ReverseMap();
             #endregion
 
             #region SocialMedia Mapping

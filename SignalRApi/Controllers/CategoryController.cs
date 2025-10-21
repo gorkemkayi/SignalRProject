@@ -32,7 +32,7 @@ namespace SignalRApi.Controllers
             _categoryService.TAdd(category);
             return Ok("Kategori Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteCategory(int id)
         {
             var category = _categoryService.TGetById(id);
