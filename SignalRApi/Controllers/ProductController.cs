@@ -33,7 +33,7 @@ namespace SignalRApi.Controllers
             var values=_mapper.Map<List<ResultProductWithCategory>>(_productService.TGetProductsWithCategories());
             return Ok(values);
         }
-        [HttpGet("GetProduct")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
             var value = _mapper.Map<GetProductDto>(_productService.TGetById(id));
@@ -46,7 +46,7 @@ namespace SignalRApi.Controllers
             _productService.TAdd(product);
             return Ok("Ürün başarılı bir şekilde eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);
