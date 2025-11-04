@@ -27,7 +27,7 @@ namespace SignalRApi.Controllers
             var values = _mapper.Map<List<ResultTestimonialDto>>(_testimonialService.TGetListAll());
             return Ok(values);
         }
-        [HttpGet("GetTestimonial")]
+        [HttpGet("{id}")]
         public IActionResult GetTestimonial(int id)
         {
             var value = _mapper.Map<GetTestimonialDto>(_testimonialService.TGetById(id));
@@ -40,7 +40,7 @@ namespace SignalRApi.Controllers
             _testimonialService.TAdd(testimonial);
             return Ok("Müşteri yorum bilgisi başarılı bir şekilde eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);

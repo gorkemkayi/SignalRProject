@@ -26,7 +26,7 @@ namespace SignalRApi.Controllers
             var values = _mapper.Map<List<ResultFeatureDto>>(_featureService.TGetListAll());
             return Ok(values);
         }
-        [HttpGet("GetFeature")]
+        [HttpGet("{id}")]
         public IActionResult GetFeature(int id)
         {
             var value = _mapper.Map<GetFeatureDto>(_featureService.TGetById(id));
@@ -39,7 +39,7 @@ namespace SignalRApi.Controllers
             _featureService.TAdd(feature);
             return Ok("Öne çıkanlar başarılı bir şekilde eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeature(int id)
         {
             var value = _featureService.TGetById(id);
